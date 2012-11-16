@@ -16,7 +16,13 @@ ARGV.each do |file|
     price = matchingArray[2].to_f
     itemList.push(Item.new(item, price, qty))
   end
-  # calculate subtotal for that list of items
-  # calculate tax & total for items
+  
+  orderTotal = 0
+  taxTotal = 0
+  itemList.each do |item|
+    taxTotal += item.applicableTax
+    orderTotal += item.totalCost
+  end
+  
   # print the receipt
 end
