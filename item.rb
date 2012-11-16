@@ -1,3 +1,6 @@
+# Class representing an Item object for calculateTotal
+# @author Victor Chang
+
 class Item
   attr_accessor :name, :cost, :quantity, :applicableTax, :totalCost
   
