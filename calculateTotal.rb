@@ -17,6 +17,7 @@ ARGV.each do |file|
     itemList.push(Item.new(item, price, qty))
   end
   
+  # calculate total tax and total cost of all the items
   orderTotal = 0
   taxTotal = 0
   itemList.each do |item|
@@ -25,4 +26,11 @@ ARGV.each do |file|
   end
   
   # print the receipt
+  puts "RECEIPT OUTPUT:"
+  itemList.each do |item|
+    puts "#{item.quantity} #{item.name}: #{item.totalCost}"
+  end
+  puts "Sales Tax: #{taxTotal}"
+  puts "Total: #{orderTotal}"
+  puts
 end

@@ -1,5 +1,5 @@
 class Item
-  attr_accessor :name, :cost, :qty, :applicableTax, :totalCost
+  attr_accessor :name, :cost, :quantity, :applicableTax, :totalCost
   
   UNTAXED_ITEMS = ["chocolate", "book", "pills"] # can only handle the specific test cases given
 
@@ -8,7 +8,7 @@ class Item
     @cost = cost
     @quantity = quantity
     @applicableTax = roundTax((calculateTaxRate() * cost / 100.0))
-    @totalCost = calculateTotal()
+    @totalCost = applicableTax + cost
   end
   
   def calculateTaxRate()
@@ -32,8 +32,4 @@ class Item
     (num * 20.0).ceil / 20.0
   end
     
-  def calculateTotal()
-    return applicableTax + cost
-  end
-
 end
